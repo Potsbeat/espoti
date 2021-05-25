@@ -1,13 +1,10 @@
 import "./css/Song.css";
 
-function Song({song, loading}){
+function Song({song, playOnClick}){
     return (
-        <div className="song">
+        <div className="song" onClick={playOnClick}>
             <h3>{song.name}</h3>
             {song.artistName}
-            <audio controls>
-                <source src={song.previewURL} type="audio/mpeg" />
-            </audio>
         </div>
     );
 }
