@@ -20,6 +20,9 @@ const Player = ({song}) => {
     controls.volume(volume/100);
   }
 
+  function handleTime(ev){
+    controls.seek(ev.target.value);
+  }
 
   return (
     <div className="player">
@@ -34,7 +37,7 @@ const Player = ({song}) => {
         <span className="artist">{ (song!=null) ? song.artistName : ''}</span>
       </div>
 
-      <input className="progress-bar" type="range" min="0" max={state.duration} value={state.time} step="0.01" />
+      <input className="progress-bar" type="range" min="0" max={state.duration} value={state.time} step="0.01" onChange={handleTime} />
       
       <input type="range" min="0" max="100" value={volume} onChange={handleVolume} />
      
