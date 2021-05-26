@@ -1,4 +1,6 @@
 .song{
+display: flex;
+align-items: center;
     background-color: #0000004f;
     color: rgb(255, 255, 255);
     
@@ -10,6 +12,10 @@
     transition: box-shadow 0.2s, background-color 0.2s, color 0.2s;
 
     margin: 0.1rem 0;
+}
+
+.song-data{
+    padding-left: 1rem;
 }
 
 @media only screen and (min-width: 481px){

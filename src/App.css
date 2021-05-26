@@ -2,17 +2,17 @@
 .header{
     display: flex;
     align-items: center;
-    height: 5%;
+    height: 7%;
     background-color: #412234;
 }
 .body{
 
-    height: 88%;
+    height: 85%;
     overflow: auto;
 }
 .footer{
     
-    height: 7%;
+    height: 8%;
 }
 
 .all{
@@ -21,10 +21,10 @@
 }
 
 .nav-item{
-    color: beige;
+    color: rgb(255, 255, 255);
     text-decoration: none;
-    margin: 0.3rem;
-    font-size: larger;
+    margin: 0 0.3rem;
+    font-size: large;
 }
 
 ::-webkit-scrollbar {

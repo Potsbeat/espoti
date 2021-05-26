@@ -19,8 +19,19 @@
 }
 
 .play-btn{
-    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+
+    font-size: 2.4rem;
     cursor: pointer;
+    
+}
+
+.ihover{
+    transition: 0.2s;
+}
+.ihover:hover{
+    color: #f5fcd8;
 }
 
 .artist{

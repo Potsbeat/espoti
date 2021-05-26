@@ -29,7 +29,7 @@ const Player = ({song}) => {
       {audio}
       
       <div className="play-btn" onClick={ togglePlay }>
-        { state.paused ? <i class="far fa-play-circle"></i> : <i class="fas fa-pause-circle"></i> }
+        { state.paused ? <i className="far fa-play-circle ihover"></i> : <i class="far fa-pause-circle ihover"></i> }
       </div>
 
       <div className="player-info vertical-flex">

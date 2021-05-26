@@ -30,7 +30,7 @@ function Search({setCurrentSong}) {
     let resp = await fetch(url);
     let data = await resp.json();
     setSongsList(data.search.data.tracks);
-    console.log(data.search.data.tracks);
+    console.log(data.search.data);
     setLoading(false);
     console.log("el fols: "+loading)
   }
