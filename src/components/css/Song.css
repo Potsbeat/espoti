@@ -1,4 +1,31 @@
 .song{
+    background-color: #0000004f;
+    color: rgb(255, 255, 255);
+    
     border: 1px solid gray;
     border-radius: 6px;
+    cursor: pointer;
+
+    padding: 0.5rem 0.8rem;
+    transition: box-shadow 0.2s, background-color 0.2s, color 0.2s;
+
+    margin: 0.1rem 0;
+}
+
+@media only screen and (min-width: 481px){
+    .song:hover{
+        box-shadow: 0 0 5px gray;
+    }
+    .song{
+        width: 80%;
+        align-self: center;
+    }
+}
+.song:hover{
+    background-color: rgb(49, 49, 49);
+    color: white;
+}
+
+.artista{
+    font-size: 0.9rem;
 }

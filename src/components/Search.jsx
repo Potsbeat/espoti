@@ -1,25 +1,26 @@
 import './css/Search.css';
 import { useEffect, useRef, useState } from 'react';
 import Song from './Song';
-import Player from './Player';
 
-function Search() {
+function Search({setCurrentSong}) {
   const search_input = useRef();
   const [songsList, setSongsList] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [currentSong, setCurrentSong] = useState(null);
 
   useEffect(() => {
     
   },[songsList]);
 
   async function search(){
+    const search_input_val = search_input.current.value;
+    if(search_input_val===null || !search_input_val.replace(/\s/g, '').length){
+      return;
+    }
     setLoading(true);
-    console.log("el tru: "+loading)
     setSongsList([]);
     
     //Construir el URL
-    const search_input_val = search_input.current.value;
+    
     let par_url = "http://api.napster.com";
     let key = "apikey=ZTk2YjY4MjMtMDAzYy00MTg4LWE2MjYtZDIzNjJmMmM0YTdm";
     let query = `query=${search_input_val}`;
@@ -37,17 +38,20 @@ function Search() {
   
 
   return (
-    <div>
+    <div className="vertical-flex">
       
-      <input type="text" ref={search_input} />
-      <button onClick={search}>Buscar</button>
+      <section className="search-section justify-center">
+          <input type="text" ref={search_input} />
+          
+          <div className="search-btn" onClick={search}><i className="fas fa-search"></i></div>
+      </section>
       { loading ? <div className="loading-div"><div className="loader"></div></div> : <></>}
       {
       songsList.map( song => 
         <Song key={song.id} song={song} playOnClick={()=>setCurrentSong(song)} />
       )
       }
-        <Player song={currentSong} />
+        
     </div>
   );
 }

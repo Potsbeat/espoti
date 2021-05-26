@@ -3,8 +3,8 @@ import "./css/Song.css";
 function Song({song, playOnClick}){
     return (
         <div className="song" onClick={playOnClick}>
-            <h3>{song.name}</h3>
-            {song.artistName}
+            <h4>{song.name}</h4>
+            <span className="artista">{song.artistName}</span>
         </div>
     );
 }

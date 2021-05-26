@@ -1,30 +1,43 @@
 import {useAudio} from 'react-use';
-
+import {useState} from 'react';
+import './css/Player.css';
 const Player = ({song}) => {
     let src = '';
     (song==null) ? src='' : src = song.previewURL;
-  const [audio, state, controls, ref] = useAudio({
+  const [audio, state, controls] = useAudio({
     src: src,
     autoPlay: true,
   });
+
+  const[volume, setVolume] = useState(80);
 
   function togglePlay(){
       state.paused ? controls.play() : controls.pause();
   }
 
+  function handleVolume(ev){
+    setVolume(ev.target.value);
+    controls.volume(volume/100);
+  }
+
+
   return (
-    <div>
+    <div className="player">
       {audio}
-      <pre>{JSON.stringify(state, null, 2)}</pre>
-      <button onClick={ togglePlay }>{ state.paused ? 'Play' : 'Pausa'}</button>
-      <br/>
-      <button onClick={controls.mute}>Mute</button>
-      <button onClick={controls.unmute}>Un-mute</button>
-      <br/>
-      <button onClick={() => controls.volume(.5)}>Volume: 50%</button>
-      <button onClick={() => controls.volume(1)}>Volume: 100%</button>
-      <br/>
       
+      <div className="play-btn" onClick={ togglePlay }>
+        { state.paused ? <i class="far fa-play-circle"></i> : <i class="fas fa-pause-circle"></i> }
+      </div>
+
+      <div className="player-info vertical-flex">
+        <span className="title">{ (song!=null) ? song.name : ''}</span>
+        <span className="artist">{ (song!=null) ? song.artistName : ''}</span>
+      </div>
+
+      <input className="progress-bar" type="range" min="0" max={state.duration} value={state.time} step="0.01" />
+      
+      <input type="range" min="0" max="100" value={volume} onChange={handleVolume} />
+     
     </div>
   );
 };
