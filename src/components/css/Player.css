@@ -1,5 +1,6 @@
 .player{
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
     background-color: #11270B;
@@ -15,8 +16,10 @@
 }
 
 .progress-bar{
-    width: 50%;
+    width: 80%;
 }
+
+
 
 .play-btn{
     display: flex;
@@ -36,4 +39,30 @@
 
 .artist{
     font-size: small;
+}
+
+@media only screen and (max-width: 480px){
+    .hide-on-mobile{
+        display: none;
+    }
+
+    .progress-bar{
+        width: 95%;
+    }
+    .bellow-pbar{
+        width: 95%;
+    }
+}
+
+.player-img{
+    max-width: 3rem;
+    margin-right: 0.3rem;
+}
+
+.bellow-pbar{
+  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
 }

@@ -5,7 +5,7 @@ function Song({song, playOnClick}){
 
     return (
         <div className="song" onClick={playOnClick}>
-            <img alt="cover" src={cover_img} />
+            <img alt="cover" src={cover_img} className="song-cover" />
             <section className="song-data">
                 <h4>{song.name}</h4>
                 <span className="artista">{song.artistName}</span>

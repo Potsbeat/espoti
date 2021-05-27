@@ -4,6 +4,7 @@ import Song from './Song';
 
 function Search({setCurrentSong}) {
   const search_input = useRef();
+  const search_btn = useRef();
   const [songsList, setSongsList] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -21,7 +22,7 @@ function Search({setCurrentSong}) {
     
     //Construir el URL
     
-    let par_url = "http://api.napster.com";
+    let par_url = "https://api.napster.com";
     let key = "apikey=ZTk2YjY4MjMtMDAzYy00MTg4LWE2MjYtZDIzNjJmMmM0YTdm";
     let query = `query=${search_input_val}`;
     let url = par_url + `/v2.2/search/verbose?${key}&${query}`;
@@ -35,15 +36,17 @@ function Search({setCurrentSong}) {
     console.log("el fols: "+loading)
   }
 
-  
+  function checkEnter(e){
+    e.key==='Enter' && search_btn.current.click();
+  }
 
   return (
     <div className="vertical-flex">
       
       <section className="search-section justify-center">
-          <input type="text" ref={search_input} />
+          <input type="text" ref={search_input} onKeyDown={checkEnter} />
           
-          <div className="search-btn" onClick={search}><i className="fas fa-search"></i></div>
+          <div ref={search_btn} className="search-btn" onClick={search}><i className="fas fa-search"></i></div>
       </section>
       { loading ? <div className="loading-div"><div className="loader"></div></div> : <></>}
       {
@@ -51,7 +54,7 @@ function Search({setCurrentSong}) {
         <Song key={song.id} song={song} playOnClick={()=>setCurrentSong(song)} />
       )
       }
-        
+      
     </div>
   );
 }

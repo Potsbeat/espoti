@@ -22,6 +22,15 @@
     
 }
 
+@media only screen and (max-width: 480px){
+    .body{
+        height: 78%;
+    }
+    .footer{
+        height: 15%;
+    }
+}
+
 .nav-item{
     color: rgb(255, 255, 255);
     text-decoration: none;
@@ -50,6 +59,10 @@
       flex-direction: column;
   }
 
+  .horizontal-flex{
+      display: flex;
+      flex-direction: row;
+  }
   .justify-center{
       justify-content: center;
   }
@@ -61,3 +74,5 @@
   .background-blur{
     backdrop-filter: blur(5px);
   }
+
+  
