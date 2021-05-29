@@ -1,14 +1,14 @@
 .player{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
     background-color: #11270B;
 
     width: 100%;
     height: 100%;
 
-    padding: 0.5rem;
+    
 
     color: white;
 
@@ -56,7 +56,7 @@
 
 .player-img{
     max-width: 3rem;
-    margin-right: 0.3rem;
+    margin-right: 0.5rem;
 }
 
 .bellow-pbar{
