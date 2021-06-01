@@ -10,11 +10,21 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import {  useState } from 'react';
+import {  useState, useEffect } from 'react';
+import Favorites from './components/Favorites';
+
+let favoriteStorage = JSON.parse(localStorage.getItem("favorites") || '[]');
 
 function App() {
+  
   const [currentSong, setCurrentSong] = useState(null);
+  const [favList, setFavList] = useState(favoriteStorage);
+  console.log(favList)
 
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favList));
+    
+  }, [favList])
   return (
 
       <Div100vh>
@@ -22,15 +32,16 @@ function App() {
           <div className="header">
             <Link to="/" className="nav-item">Home</Link>
             <Link to="/search" className="nav-item">Buscar</Link>
-            <Link to="/search" className="nav-item">Favoritas</Link>
+            <Link to="/favorites" className="nav-item">Favoritas</Link>
           </div>
           <div className="body background-blur">
             
-              
-             
             <Switch>
             <Route path="/search">
-                <Search setCurrentSong={setCurrentSong} />
+                <Search setCurrentSong={setCurrentSong} favList={favList} setFavList={setFavList} />
+              </Route>
+              <Route path="/favorites">
+                <Favorites setCurrentSong={setCurrentSong} favList={favList} setFavList={setFavList} />
               </Route>
             </Switch>
           </div>

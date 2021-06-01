@@ -2,7 +2,7 @@ import './css/Search.css';
 import { useEffect, useRef, useState } from 'react';
 import Song from './Song';
 
-function Search({setCurrentSong}) {
+function Search({setCurrentSong, favList, setFavList}) {
   const search_input = useRef();
   const search_btn = useRef();
   const [songsList, setSongsList] = useState([]);
@@ -44,14 +44,18 @@ function Search({setCurrentSong}) {
     <div className="vertical-flex">
       
       <section className="search-section justify-center">
-          <input type="text" ref={search_input} onKeyDown={checkEnter} />
+          <input autoFocus type="text" ref={search_input} onKeyDown={checkEnter} />
           
           <div ref={search_btn} className="search-btn" onClick={search}><i className="fas fa-search"></i></div>
       </section>
       { loading ? <div className="loading-div"><div className="loader"></div></div> : <></>}
       {
       songsList.map( song => 
-        <Song key={song.id} song={song} playOnClick={()=>setCurrentSong(song)} />
+        <Song key={song.id} 
+              song={song}
+              playOnClick={()=>setCurrentSong(song)}
+              favList={favList}
+              setFavList={setFavList} />
       )
       }
       
