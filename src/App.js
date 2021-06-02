@@ -12,6 +12,7 @@ import {
 } from "react-router-dom";
 import {  useState, useEffect } from 'react';
 import Favorites from './components/Favorites';
+import Home from './components/Home';
 
 let favoriteStorage = JSON.parse(localStorage.getItem("favorites") || '[]');
 
@@ -42,6 +43,9 @@ function App() {
               </Route>
               <Route path="/favorites">
                 <Favorites setCurrentSong={setCurrentSong} favList={favList} setFavList={setFavList} />
+              </Route>
+              <Route path="/">
+                <Home setCurrentSong={setCurrentSong} favList={favList} setFavList={setFavList} />
               </Route>
             </Switch>
           </div>

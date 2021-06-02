@@ -13,6 +13,9 @@
     transition: box-shadow 0.2s, background-color 0.2s, color 0.2s;
 
     margin: 0.1rem 0;
+
+    height: 100%;
+    animation: fade 0.4s;
 }
 
 .song-data{
@@ -28,7 +31,12 @@
         width: 80%;
         align-self: center;
     }
+    .star-div:hover{
+        color: yellow;
+    }
 }
+
+
 .song:hover{
     background-color: rgb(49, 49, 49);
     color: white;
@@ -47,6 +55,10 @@
     font-size: 1.6rem;
     
 }
-.star-div:hover{
-    color: yellow;
+
+
+@keyframes fade {
+    0% {opacity: 0;}
+    100% {opacaity: 1;}
 }
+

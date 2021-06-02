@@ -1,4 +1,4 @@
-
+import './css/Favorites.css'
 import Song from './Song';
 
 function Favorites({setCurrentSong, favList, setFavList}){
@@ -13,7 +13,7 @@ function Favorites({setCurrentSong, favList, setFavList}){
               favList={favList}
               setFavList={setFavList} />
           ) :
-          <p>Nada que mostrar</p>
+          <h3 className="nothing-title">A&uacute;n no tienes canciones agregadas :0</h3>
       }      
     </div>
     );
